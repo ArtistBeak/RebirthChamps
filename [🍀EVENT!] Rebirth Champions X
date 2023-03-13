@@ -1,0 +1,315 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "PeaksHub",
+	LoadingTitle = "Peaks Hub",
+	LoadingSubtitle = "by whosjohnnnnn",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = "Peak Premium",
+		FileName = "Pogiko"
+	},
+  KeySystem = true, -- Set this to true to use their key system
+	KeySettings = {
+		Title = "Peaks Hub",
+		Subtitle = "Key System",
+		Note = "Join the discord (discord.gg/peaks)",
+		SaveKey = true,
+		Key = "Eljohn"
+	}
+})
+Rayfield:Notify({
+	Title = "peakshub",
+	Content = "peakshub fully loaded game:[🍀X6!] Rebirth Champions X",
+	Duration = 5,
+	Image = 5,
+	Actions = { -- Notification Buttons
+		Ignore = {
+			Name = "Sige lods!",
+			Callback = function()
+			end
+		},
+	},
+})
+
+local rebirthcounter = game:GetService("Players").LocalPlayer.Upgrades.RebirthButtons
+local Eggs = game:GetService("Workspace").Scripts.Eggs:GetChildren()
+local EggsTable = {}
+local Worlds = game:GetService("Workspace").Scripts.Portals:GetChildren()
+local WorldsTable = {}
+local part = game:GetService("Workspace").Scripts.Portals["Fantasy Jungle"].Touch
+local part1 = game:GetService("Workspace").Scripts.Portals.ToFantasy["Fantasy Spawn"].Touch
+local game = workspace.Parent
+
+print("Peaks Hub - Checking If Script Updated")
+
+
+
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(0.5,Enum.EasingStyle.Linear)
+local lp = game.Players.LocalPlayer
+local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+for i,v in pairs(Eggs) do
+	table.insert(EggsTable, v.Name)
+end
+
+
+getgenv().autoclick = false
+getgenv().autoHatch1 = false
+getgenv().autoHatch3 = false
+getgenv().selectEgg = "Basic"
+getgenv().autorebirth = false
+getgenv().autorebirthselect = 1
+getgenv().autorebirthbest = rebirthcounter.Value
+getgenv().autocraft = false
+getgenv().autospinwhell = false
+getgenv().noclip = false
+getgenv().disableteleporter = false
+getgenv().enableteleporter = false
+getgenv().whitescreen = false
+
+function disableteleporter()
+	for i, v in next, getconnections(part.Touched) do
+		v:Disable()
+	end
+
+	for i, v in next, getconnections(part1.Touched) do
+		v:Disable()
+	end
+end
+
+function enableteleporter()
+	for i, v in next, getconnections(part.Touched) do
+		v:Enable()
+	end
+
+	for i, v in next, getconnections(part1.Touched) do
+		v:Enable()
+	end
+end
+
+
+function autoclick()
+	while getgenv().autoclick == true do
+		game:GetService("ReplicatedStorage").Events.Click3:FireServer()
+		game:GetService("ReplicatedStorage").Events.Click3:FireServer(true)
+		task.wait(.00000000000001)
+	end
+end
+
+
+
+function autoHatch1()
+	while getgenv().autoHatch1 == true do
+		game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(getgenv().selectEgg,"Single")
+		task.wait(.00000000000000000000000000001)
+	end
+end
+
+function autoHatch3()
+	while getgenv().autoHatch3 == true do
+		game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(getgenv().selectEgg,"Triple")
+		task.wait(0.5)
+	end
+end
+
+function autorebirth()
+	while getgenv().autorebirth == true do
+		game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(getgenv().autorebirthselect)
+		task.wait(.0000000000000000000000001)
+	end
+end
+
+function autorebirthbest()
+	while getgenv().autorebirthbest == true do
+		game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(rebirthcounter.Value)
+		task.wait(.0000000000000000000001)
+	end
+end
+
+function autocraft()
+	while getgenv().autocraft == true do
+		game:GetService("ReplicatedStorage").Functions.Request:InvokeServer("CraftAll",{})
+		task.wait(.00000000000000000001)
+	end
+end
+
+function autospinwhell()
+	while getgenv().autospinwhell == true do
+		game:GetService("ReplicatedStorage").Functions.Spin:InvokeServer()
+		task.wait(.0000000000000000000001)
+	end
+end
+
+function autofarmluck()
+	while getgenv().autofarmluck == true do
+		for i,v in pairs(game:GetService("Workspace").Scripts.CollectClovers.Storage:GetDescendants()) do
+			if (v.Name == "TouchInterest" and v.Parent) then
+				firetouchinterest(game.Players.LocalPlayer.Character.Head, v.Parent, 0)
+				print("done")
+				wait()
+				break;
+			end
+		end
+	end
+end
+
+
+
+function Azdk()
+    while getgenv().Azdk == true do
+        local args = {
+            [1] = "Mga Ulol ang pogi kaya ni john",
+            [2] = "All",
+            [3] = "Pogi ni john"}
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+        wait(0.75)
+    end
+end
+
+game:GetService("ReplicatedStorage").Events.DailyReward:FireServer(2)
+game:GetService("ReplicatedStorage").Events.DailyReward:FireServer(3)
+game:GetService("ReplicatedStorage").Events.DailyReward:FireServer(4)
+game:GetService("ReplicatedStorage").Events.DailyReward:FireServer(5)
+game:GetService("ReplicatedStorage").Events.DailyReward:FireServer(6)
+game:GetService("ReplicatedStorage").Events.DailyReward:FireServer(7)
+
+local Farm = Window:CreateTab("Farm Tab", 4483362458)
+local Misc = Window:CreateTab("Misc", 4483362458)
+local Betlog = Window:CreateTab("Betlog", 4483362458)
+local Plr = Window:CreateTab("Player", 4483362458)
+
+local Section = Farm:CreateSection("Auto Click yan par")
+local Toggle = Farm:CreateToggle({
+	Name = "Pindot Gaming",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+    getgenv().autoclick = Value
+		autoclick()
+	end,
+})
+print("[PEAK] Establishing Secure Connection. Madapaking Succes!")
+
+local Section = Farm:CreateSection("Auto Rebirth")
+local Toggle = Farm:CreateToggle({
+	Name = "Auto Rebirth",
+	CurrentValue = false,
+	Flag = "Toggle1", 
+	Callback = function(Value)
+    getgenv().autorebirth = Value
+		autorebirth() 
+	end,
+})
+
+local Toggle = Farm:CreateToggle({
+	Name = "Auto Rebirth (Best Rebirth)",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		getgenv().autorebirthbest = Value
+		autorebirthbest() 
+	end,
+})
+
+local Toggle = Farm:CreateToggle({
+	Name = "Auto Spin Whell",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		getgenv().autospinwhell = Value
+		autospinwhell() 
+	end,
+})
+
+local Label = Farm:CreateLabel("Current Best Rebirth: "..rebirthcounter.Value)
+
+
+local Toggle = Misc:CreateToggle({
+	Name = "Magingay",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		getgenv().Azdk = Value
+		Azdk()
+	end,
+})
+
+local Toggle = Betlog:CreateToggle({
+	Name = "Auto Hatch (Single)",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		getgenv().autoHatch1 = Value
+		autoHatch1() 
+	end,
+})
+
+local Toggle = Betlog:CreateToggle({
+	Name = "Auto Hatch (Triple)",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		getgenv().autoHatch3 = Value
+		autoHatch3() 
+	end,
+})
+
+local Toggle = Betlog:CreateToggle({
+	Name = "Auto Craft",
+	CurrentValue = false,
+	Flag = "Toggle1",
+	Callback = function(Value)
+		getgenv().autocraft = Value
+		autocraft() 
+	end,
+})
+
+local Dropdown = Betlog:CreateDropdown({
+	Name = "Select Eggs",
+	Options = EggsTable,
+	CurrentOption = "Basic",
+	Flag = "Dropdown1",
+	Callback = function(Option)
+		getgenv().selectEgg = Option
+	end,
+})
+
+
+local Dropdown = Farm:CreateDropdown({
+	Name = "Select Rebirth",
+	Options = {1,2,3,4,5,6,7,8,9,10,
+		11,12,13,14,15,16,17,18,19,20,
+		21,22,23,24,25,26,27,28,29,30,
+		31,32,33,34,35,36,37,38,39,40,
+		41,42,43,44,45,46,47,48,49,50,
+		51,52,53,54,55,56,57,58,59,60,
+		61,62,63,64,65,66,67,68,69,70,
+		71,72,73,74,75,76,77,78,79,80,
+		81,82,83,84,85,86,87,88,89,90,
+		91,92,93,94,95,96,97,98,99,100},
+	CurrentOption = "none",
+	Flag = "Dropdown1",
+	Callback = function(Option)
+		getgenv().autorebirthselect = Option
+		print(getgenv().autorebirthselect)  
+	end,
+})
+
+local Slider = Plr:CreateSlider({
+	Name = "FOV",
+	Range = {0, 120},
+	Increment = 1,
+	Suffix = "Field of view (Computer Onle)",
+	CurrentValue = 90,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		game:GetService'Workspace'.Camera.FieldOfView = Value
+	end,
+})
+
+local Label = Misc:CreateLabel("Anti Afk is enabled")
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+	v:Disable()
+end
